@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Peminjaman;
+use App\Models\TransaksiPeminjaman;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class PeminjamanController extends Controller
+class TransaksiPeminjamanController extends Controller
 {
     // Menampilkan form peminjaman
     public function create()
     {
         $products = Product::all(); // Mengambil semua produk untuk pilihan barang yang disewa
-        return view('peminjaman.create', compact('products'));
+        return view('transaksi_peminjaman.create', compact('products'));
     }
 
     // Menyimpan data peminjaman
@@ -25,15 +25,15 @@ class PeminjamanController extends Controller
             'tanggal_pengembalian' => 'required|date|after_or_equal:tanggal_sewa',
         ]);
 
-        Peminjaman::create($request->all());
+        TransaksiPeminjaman::create($request->all());
 
-        return redirect()->route('peminjaman.index')->with('success', 'Peminjaman berhasil disimpan.');
+        return redirect()->route('transaksi_peminjaman.index')->with('success', 'Peminjaman berhasil disimpan.');
     }
 
     // Menampilkan daftar peminjaman
     public function index()
     {
-        $peminjaman = Peminjaman::with('product')->get(); // Mengambil semua data peminjaman beserta produk terkait
-        return view('peminjaman.index', compact('peminjaman'));
+        $transaksiPeminjaman = TransaksiPeminjaman::with('product')->get(); // Mengambil semua data peminjaman beserta produk terkait
+        return view('transaksi_peminjaman.index', compact('transaksiPeminjaman'));
     }
 }

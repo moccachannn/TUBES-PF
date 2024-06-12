@@ -41,9 +41,9 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">WELCOME TO</h1>
-                    <h2 class="display-4 fw-bolder">SEMPU OUTDOOR RENTAL</h2>
-                    <p class="lead fw-normal text-white-50 mb-0">PERSEWAAN ALAT CAMPING TERLENGKAP DAN JANGKAU</p>
+                    <h3 class="display-4 fw-bolder">SEMPU OUTDOOR RENTAL?</h3>
+                    <h5 class="display-4 fw-bolder">Your Loyal Adventure Companion!</h5>
+                    <p class="lead fw-normal text-white-50 mb-0">Rent The Best Outdoor Equipment for an unforgettable hiking dan camping.</p>
                 </div>
             </div>
         </header>
@@ -54,7 +54,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img class="card-img-top" src="views/shop/Tenda 4-5" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
