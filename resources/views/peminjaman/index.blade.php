@@ -16,6 +16,7 @@
                 {{ session('success') }}
             </div>
         @endif
+        <a href="{{ route('peminjaman.create') }}" class="btn btn-primary mb-3">Tambah Barang</a>
         <table class="table table-bordered">
             <thead>
                 <tr>

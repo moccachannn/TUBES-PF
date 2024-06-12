@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Peminjaman;
 use App\Models\Product;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PeminjamanController extends Controller
 {
@@ -18,14 +20,16 @@ class PeminjamanController extends Controller
     // Menyimpan data peminjaman
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData =$request->validate([
             'product_id' => 'required|exists:products,id',
             'nama_lengkap' => 'required|string|max:255',
             'tanggal_sewa' => 'required|date',
             'tanggal_pengembalian' => 'required|date|after_or_equal:tanggal_sewa',
         ]);
 
-        Peminjaman::create($request->all());
+        log::info('Validated Data:', $validatedData);
+
+        Peminjaman::create($validatedData);
 
         return redirect()->route('peminjaman.index')->with('success', 'Peminjaman berhasil disimpan.');
     }
@@ -35,5 +39,11 @@ class PeminjamanController extends Controller
     {
         $peminjaman = Peminjaman::with('product')->get(); // Mengambil semua data peminjaman beserta produk terkait
         return view('peminjaman.index', compact('peminjaman'));
+    }
+
+    public function show($id)
+    {
+        $peminjaman = Peminjaman::with('product')->findOrFail($id); // Mengambil detail peminjaman beserta produk terkait
+        return view('peminjaman.show', compact('peminjaman'));
     }
 }
