@@ -12,6 +12,6 @@ class Product extends Model
     protected $fillable = [
         'nama_produk',
         'harga',
-        // tambahkan atribut lain yang diizinkan untuk mass assignment
+        'deskripsi_produk', // tambahkan atribut lain yang diizinkan untuk mass assignment
     ];
 }

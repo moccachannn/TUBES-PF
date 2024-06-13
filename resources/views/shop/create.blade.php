@@ -16,6 +16,10 @@
                 <label for="nama_produk" class="form-label">Nama Produk</label>
                 <input type="text" class="form-control" id="nama_produk" name="nama_produk" required>
             </div>
+             <div class="mb-3">
+                <label for="deskripsi_produk" class="form-label">Deskripsi Produk</label>
+                <input type="text" class="form-control" id="deskripsi_produk" name="deskripsi_produk" required>
+            </div>
             <div class="mb-3">
                 <label for="harga" class="form-label">Harga</label>
                 <input type="text" class="form-control" id="harga" name="harga" required>
