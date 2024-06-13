@@ -22,9 +22,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{route('peminjaman.index')}}">Sewa</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('products.create')}}">Tambah Produk</a></li>
                         </li>
                     </ul>
+                    <form method="POST" action="{{ route('logout') }}" class="d-flex">
+                        @csrf
+                        <button type="submit" class="btn btn-outline-dark">Logout</button>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -46,7 +50,7 @@
                         <div class="col mb-5">
                             <div class="card h-100">
                                 <!-- Product image-->
-                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                                <img class="card-img-top" src="img/Daypack.jpg" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">

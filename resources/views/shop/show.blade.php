@@ -17,8 +17,14 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">Harga {{ $products->harga }}</h5>
-                <p class="card-text"><strong>Barang yang Disewa:</strong> {{ $products->nama_produk }}</p>
+                <p class="card-text"><strong>nama barang </strong> {{ $products->nama_produk }}</p>
                 <a href="{{ route('shop.index') }}" class="btn btn-primary">Kembali</a>
+                <a href="{{ route('products.edit', $products->id) }}" class="btn btn-info">Edit</a>
+                <form action="{{ route('products.destroy', $products->id) }}" method="POST" class="mt-3">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Anda yakin ingin menghapus produk ini?')">Hapus Produk</button>
+                </form>
             </div>
         </div>
     </div>
