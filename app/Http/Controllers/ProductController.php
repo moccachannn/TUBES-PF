@@ -9,8 +9,18 @@ class ProductController extends Controller
 {
     public function index()
     {
+        $pageTitle ='admin';
         $products = Product::all(); // Mengambil semua produk dari database
-        return view('shop.index', compact('products')); // Mengirim data produk ke view
+        return view('shop.index', compact('products', 'pageTitle')); // Mengirim data produk ke view
+    }
+
+    public function kembali()
+    {
+        // Mengambil semua data produk
+        $products = Product::all();
+
+        // Mengirim data produk ke view 'homepage'
+        return view('homepage', compact('products'));
     }
 
     public function show($id)

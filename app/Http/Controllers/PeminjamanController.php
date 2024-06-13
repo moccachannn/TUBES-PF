@@ -40,8 +40,9 @@ class PeminjamanController extends Controller
     // Menampilkan daftar peminjaman
     public function index()
     {
+        $pageTitle = 'peminjaman';
         $peminjaman = Peminjaman::with('product')->get(); // Mengambil semua data peminjaman beserta produk terkait
-        return view('peminjaman.index', compact('peminjaman'));
+        return view('peminjaman.index', compact('peminjaman','pageTitle'));
     }
 
     public function show($id)
