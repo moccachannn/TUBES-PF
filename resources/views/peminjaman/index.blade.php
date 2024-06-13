@@ -8,6 +8,11 @@
             </div>
         @endif
         <a href="{{ route('peminjaman.create') }}" class="btn btn-primary mb-3">Tambah Barang</a>
+        {{-- <li class="list-inline-item">
+            <a href="{{ route('employees.exportPdf') }}" class="btn btnoutline-danger">
+            <i class="bi bi-download me-1"></i> to PDF
+            </a>
+        </li> --}}
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -29,6 +34,11 @@
                         <td>{{ $item->tanggal_pengembalian }}</td>
                         <td>
                             <a href="{{ route('peminjaman.show', $item->id) }}" class="btn btn-info">Detail</a>
+                            <form action="{{ route('peminjaman.destroy', $item->id) }}" method="POST" style="display:inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

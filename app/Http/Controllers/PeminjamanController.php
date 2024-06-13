@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\Peminjaman;
 use App\Models\Product;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+
 
 class PeminjamanController extends Controller
 {
@@ -45,5 +48,15 @@ class PeminjamanController extends Controller
     {
         $peminjaman = Peminjaman::with('product')->findOrFail($id); // Mengambil detail peminjaman beserta produk terkait
         return view('peminjaman.show', compact('peminjaman'));
+
+    }
+
+    // Menghapus data peminjaman
+    public function destroy($id)
+    {
+        $peminjaman = Peminjaman::findOrFail($id);
+        $peminjaman->delete();
+
+        return redirect()->route('peminjaman.index')->with('success', 'Peminjaman berhasil dihapus.');
     }
 }
