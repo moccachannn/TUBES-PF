@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\PeminjamanController;
-use App\Http\Controllers\DetailPeminjamanController;
-use App\Http\Controllers\TransaksiPeminjamanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,17 +17,33 @@ use App\Http\Controllers\TransaksiPeminjamanController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/',[HomeController::class, 'index'], function () {
     return view('homepage');
-})->name('homepage');
+});
 
-Route::get('/shop', [ProductController::class, 'index'])->name('shop.index');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+    Route::get('/products/{id}', [ProductController::class, 'show'])->name('shop.show');
+    Route::get('/shop', [ProductController::class, 'index'])->name('shop.index');
+});
+
+require __DIR__.'/auth.php';
+
+Route::get('/homepage', [HomeController::class, 'index'])->name('homepage');
 Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
 Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
 Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
 Route::get('/peminjaman/{id}', [PeminjamanController::class, 'show'])->name('peminjaman.show');
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('shop.show');
-Route::get('/transaksi-peminjaman/create', [TransaksiPeminjamanController::class, 'create'])->name('transaksi_peminjaman.create');
-Route::post('/transaksi-peminjaman', [TransaksiPeminjamanController::class, 'store'])->name('transaksi_peminjaman.store');
-Route::get('/transaksi-peminjaman', [TransaksiPeminjamanController::class, 'index'])->name('transaksi_peminjaman.index');
+Route::get('/ProdukGuest/{id}', [HomeController::class, 'show'])->name('produkguest.show');

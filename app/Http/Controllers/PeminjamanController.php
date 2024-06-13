@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\Peminjaman;
 use App\Models\Product;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+
 
 class PeminjamanController extends Controller
 {

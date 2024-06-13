@@ -22,9 +22,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{route('peminjaman.index')}}">Sewa</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('products.create')}}">Tambah Produk</a></li>
                         </li>
                     </ul>
+                    <form method="POST" action="{{ route('logout') }}" class="d-flex">
+                        @csrf
+                        <button type="submit" class="btn btn-outline-dark">Logout</button>
+                    </form>
                 </div>
             </div>
         </nav>
