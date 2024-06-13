@@ -17,9 +17,8 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/',[HomeController::class, 'index'], function () {
-    return view('homepage');
-});
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -37,6 +36,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('shop.show');
     Route::get('/shop', [ProductController::class, 'index'])->name('shop.index');
+    Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+    Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+    Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 });
 
 require __DIR__.'/auth.php';
@@ -47,3 +49,4 @@ Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name(
 Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
 Route::get('/peminjaman/{id}', [PeminjamanController::class, 'show'])->name('peminjaman.show');
 Route::get('/ProdukGuest/{id}', [HomeController::class, 'show'])->name('produkguest.show');
+Route::delete('/peminjaman/{id}', [PeminjamanController::class, 'destroy'])->name('peminjaman.destroy');

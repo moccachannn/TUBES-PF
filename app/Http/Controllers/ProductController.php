@@ -36,4 +36,33 @@ class ProductController extends Controller
 
         return redirect()->route('shop.index')->with('success', 'Produk berhasil ditambahkan.');
     }
+
+    public function edit($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('shop.edit', compact('product'));
+    }
+
+    // Menyimpan perubahan pada produk
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'nama_produk' => 'required|string|max:255',
+            'harga' => 'required|numeric',
+            // Tambahkan validasi lainnya sesuai kebutuhan
+        ]);
+
+        $product = Product::findOrFail($id);
+        $product->update($validatedData);
+
+        return redirect()->route('shop.show', $product->id)->with('success', 'Produk berhasil diperbarui.');
+    }
+
+    public function destroy($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('shop.index')->with('success', 'Produk berhasil dihapus.');
+    }
 }
