@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +24,10 @@
             </div>
         </div>
     </nav>
+=======
+@extends('layouts.app')
+@section('content')
+>>>>>>> origin/moccachannn
     <div class="container mt-5">
         <h2>Daftar Peminjaman</h2>
         @if (session('success'))
@@ -40,7 +45,7 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Barang yang Disewa</th>
+                    <th>Barang yang Dipinjam</th>
                     <th>Nama Lengkap</th>
                     <th>Tanggal Sewa</th>
                     <th>Tanggal Pengembalian</th>
@@ -68,6 +73,4 @@
             </tbody>
         </table>
     </div>
-    @vite('resources/js/app.js')
-</body>
-</html>
+@endsection

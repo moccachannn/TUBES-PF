@@ -24,8 +24,7 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/homepage">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('peminjaman.index') }}">Peminjaman</a></li>
-
-                        {{-- <li class="nav-item"><a class="nav-link" href="{{ route('index') }}">Sewa</a></li> --}}
+                        <li class="nav-item"><a class="nav-link" href="{{ route('peminjaman.index') }}">Sewa</a></li>
                     </ul>
                 </div>
             </div>
