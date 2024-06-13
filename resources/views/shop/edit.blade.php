@@ -26,9 +26,16 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+                     <div class="mb-3">
+                        <label for="deskripsi_produk" class="form-label">Deskripsi Produk</label>
+                        <input type="text" class="form-control @error('deskripsi_produk') is-invalid @enderror" id="deskripsi_produk" name="deskripsi_produk" value="{{ old('deskripsi_produk', $product->deskripsi_produk) }}">
+                        @error('deskripsi_produk')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <div class="mb-3">
                         <label for="harga" class="form-label">Harga</label>
-                        <input type="number" class="form-control @error('harga') is-invalid @enderror" id="harga" name="harga" value="{{ old('harga', $product->harga) }}">
+                        <input type="text" class="form-control @error('harga') is-invalid @enderror" id="harga" name="harga" value="{{ old('harga', $product->harga) }}">
                         @error('harga')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

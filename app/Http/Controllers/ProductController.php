@@ -37,7 +37,8 @@ class ProductController extends Controller
     {
         $validatedData = $request->validate([
             'nama_produk' => 'required|string|max:255',
-            'harga' => 'required|numeric', // Changed 'date' to 'numeric' for the harga field
+            'harga' => 'required|numeric',
+            'deskripsi_produk' => 'required|string', // Tambahkan validasi untuk deskripsi produk
         ]);
 
         Log::info('Validated Data:', $validatedData);
@@ -59,6 +60,7 @@ class ProductController extends Controller
         $validatedData = $request->validate([
             'nama_produk' => 'required|string|max:255',
             'harga' => 'required|numeric',
+            'deskripsi_produk' => 'required|string', // Tambahkan validasi untuk deskripsi produk
             // Tambahkan validasi lainnya sesuai kebutuhan
         ]);
 
