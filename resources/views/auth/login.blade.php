@@ -1,10 +1,14 @@
 
 @vite('resources/css/app.css')
 @vite('resources/js/app.js')
-<div class="container">
+
+
+
+
+<div class="container" style="padding-top:10%">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+        <div class="col-md-5">
+            <div class="card" style="text-align:center;">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
