@@ -16,8 +16,9 @@
                 Detail products
             </div>
             <div class="card-body">
-                <h5 class="card-text"><strong>Nama Barang : </strong> {{ $products->nama_produk }}</h5>
-                <h5 class="card-title">Harga : Rp.  {{ $products->harga }}</h5>
+                <h5 class="card-title">Harga {{ $products->harga }}</h5>
+                <p class="card-text"><strong>nama barang </strong> {{ $products->nama_produk }}</p>
+                <p class="card-text"><strong>deskripsi produk </strong> {{ $products->deskripsi_produk }}</p>
                 <a href="{{ route('shop.index') }}" class="btn btn-primary">Kembali</a>
                 <a href="{{ route('products.edit', $products->id) }}" class="btn btn-info">Edit</a>
                 <form action="{{ route('products.destroy', $products->id) }}" method="POST" class="mt-3">
