@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         @vite('resources/css/app.css')
 
-        {{-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> --}}
+        
     </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,12 +32,8 @@
         @endif
             <a href="{{ route('products.create') }}" class="btn btn-primary mb-3">Tambah Barang</a>
             <a href="{{ route('/') }}" class="btn btn-primary mb-3">Homepage</a>
-        {{-- <li class="list-inline-item">
-            <a href="{{ route('employees.exportPdf') }}" class="btn btnoutline-danger">
-            <i class="bi bi-download me-1"></i> to PDF
-            </a>
-        </li> --}}
-        <table class="table table-bordere text-center">
+        
+        <table class="table table-bordered text-center">
             <thead>
                 <tr>
                     <th>No</th>
@@ -67,10 +63,6 @@
         </table>
     </div>
     @vite('resources/js/app.js')
-    {{-- <!-- Add Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
-
+   
 </body>
 </html>
