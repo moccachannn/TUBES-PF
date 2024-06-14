@@ -1,6 +1,6 @@
-@extends('layouts.app')
 
-@section('content')
+@vite('resources/css/app.css')
+@vite('resources/js/app.js')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -51,4 +51,4 @@
         </div>
     </div>
 </div>
-@endsection
+
